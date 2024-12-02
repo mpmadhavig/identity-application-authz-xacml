@@ -25,7 +25,6 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.wso2.carbon.identity.api.server.entitlement.v1.model.Error;
-import java.util.List;
 import org.wso2.carbon.identity.api.server.entitlement.v1.model.PolicyCombiningAlgorithmDTO;
 import org.wso2.carbon.identity.api.server.entitlement.v1.model.PolicyDTO;
 import org.wso2.carbon.identity.api.server.entitlement.v1.model.PolicySubscriberDTO;
@@ -208,14 +207,14 @@ public class EntitlementsApi  {
         @ApiResponse(code = 404, message = "Not Found", response = Error.class),
         @ApiResponse(code = 500, message = "Server Error", response = Error.class)
     })
-    public Response entitlementsPoliciesIdGet(@ApiParam(value = "",required=true) @PathParam("id") String id,     @Valid@ApiParam(value = "")  @QueryParam("version") String version) {
+    public Response entitlementsPoliciesIdGet(@ApiParam(value = "",required=true) @PathParam("id") String id,     @Valid @NotNull(message = "Property  cannot be null.") @ApiParam(value = "Whether PDP Policy or PAP Policy ",required=true, defaultValue="true") @DefaultValue("true")  @QueryParam("isPDPPolicy") Boolean isPDPPolicy) {
 
-        return delegate.entitlementsPoliciesIdGet(id,  version );
+        return delegate.entitlementsPoliciesIdGet(id,  isPDPPolicy );
     }
 
     @Valid
     @PATCH
-    @Path("/policies/{id}")
+    @Path("/policies")
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
     @ApiOperation(value = "Update policy", notes = "This API provides the capability to Update a Policy.<br>   <b>Permission required:</b> <br>       * /permission/admin/manage/identity/entitlementmgt/update <br>   <b>Scope required:</b> <br>       * internal_entitlement_mgt_update ", response = Void.class, authorizations = {
@@ -232,9 +231,9 @@ public class EntitlementsApi  {
         @ApiResponse(code = 404, message = "Not Found", response = Error.class),
         @ApiResponse(code = 500, message = "Server Error", response = Error.class)
     })
-    public Response entitlementsPoliciesIdPatch(@ApiParam(value = "",required=true) @PathParam("id") String id, @ApiParam(value = "" ) @Valid List<PolicyDTO> policyDTO) {
+    public Response entitlementsPoliciesPatch(@ApiParam(value = "" ) @Valid PolicyDTO policyDTO) {
 
-        return delegate.entitlementsPoliciesIdPatch(id,  policyDTO );
+        return delegate.entitlementsPoliciesPatch(policyDTO );
     }
 
     @Valid
@@ -256,7 +255,7 @@ public class EntitlementsApi  {
         @ApiResponse(code = 404, message = "Not Found", response = Error.class),
         @ApiResponse(code = 500, message = "Server Error", response = Error.class)
     })
-    public Response entitlementsPoliciesPost(@ApiParam(value = "" ) @Valid List<PolicyDTO> policyDTO) {
+    public Response entitlementsPoliciesPost(@ApiParam(value = "" ) @Valid PolicyDTO policyDTO) {
 
         return delegate.entitlementsPoliciesPost(policyDTO );
     }

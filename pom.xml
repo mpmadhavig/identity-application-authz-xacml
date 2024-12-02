@@ -52,6 +52,10 @@
             <id>wso2-nexus-public</id>
             <url>https://maven.wso2.org/nexus/content/repositories/public/</url>
         </repository>
+        <repository>
+            <id>wso2.snapshots</id>
+            <url>https://maven.wso2.org/nexus/content/repositories/snapshots/</url>
+        </repository>
     </repositories>
 
     <build>
@@ -516,7 +520,7 @@
             </dependency>
             <dependency>
                 <groupId>org.wso2.carbon.identity.application.authz.xacml</groupId>
-                <artifactId>org.wso2.carbon.identity.api.server.entitlement</artifactId>
+                <artifactId>org.wso2.carbon.identity.api.server.entitlement.v1</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -694,8 +698,6 @@
         <module>components/policy-editor</module>
         <module>components/scope-validator</module>
         <module>components/provisioning</module>
-        <module>features/org.wso2.carbon.identity.application.authz.xacml.feature</module>
-        <module>features/xacml</module>
     </modules>
 
 </project>

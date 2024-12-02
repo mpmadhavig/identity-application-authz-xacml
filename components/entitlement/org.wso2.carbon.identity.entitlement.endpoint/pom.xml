@@ -44,7 +44,7 @@
         </dependency>
         <dependency>
             <groupId>org.wso2.carbon.identity.application.authz.xacml</groupId>
-            <artifactId>org.wso2.carbon.identity.api.server.entitlement</artifactId>
+            <artifactId>org.wso2.carbon.identity.api.server.entitlement.v1</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>*</groupId>

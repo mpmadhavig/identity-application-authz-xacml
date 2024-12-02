@@ -76,6 +76,7 @@
             <artifactId>org.wso2.carbon.identity.entitlement</artifactId>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>

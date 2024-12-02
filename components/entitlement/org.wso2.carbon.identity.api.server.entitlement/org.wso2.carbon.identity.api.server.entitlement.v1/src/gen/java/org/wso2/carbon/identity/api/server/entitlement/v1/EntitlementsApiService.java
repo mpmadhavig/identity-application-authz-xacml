@@ -25,7 +25,6 @@ import org.apache.cxf.jaxrs.ext.multipart.Multipart;
 import java.io.InputStream;
 import java.util.List;
 import org.wso2.carbon.identity.api.server.entitlement.v1.model.Error;
-import java.util.List;
 import org.wso2.carbon.identity.api.server.entitlement.v1.model.PolicyCombiningAlgorithmDTO;
 import org.wso2.carbon.identity.api.server.entitlement.v1.model.PolicyDTO;
 import org.wso2.carbon.identity.api.server.entitlement.v1.model.PolicySubscriberDTO;
@@ -47,11 +46,11 @@ public interface EntitlementsApiService {
 
       public Response entitlementsPoliciesIdDelete(String id);
 
-      public Response entitlementsPoliciesIdGet(String id, String version);
+      public Response entitlementsPoliciesIdGet(String id, Boolean isPDPPolicy);
 
-      public Response entitlementsPoliciesIdPatch(String id, List<PolicyDTO> policyDTO);
+      public Response entitlementsPoliciesPatch(PolicyDTO policyDTO);
 
-      public Response entitlementsPoliciesPost(List<PolicyDTO> policyDTO);
+      public Response entitlementsPoliciesPost(PolicyDTO policyDTO);
 
       public Response getAllPolicies(Boolean isPDPPolicy, String policyType, String policySearchString, Integer pageNumber);
 
