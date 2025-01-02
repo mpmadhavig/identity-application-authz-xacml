@@ -230,7 +230,7 @@
                             org.wso2.carbon.security.*; version="${carbon.identity.framework.import.version.range}",
                         </Import-Package>
                         <Export-Package>
-                            !org.wso2.carbon.identity.entitlement.common.*,
+                            !org.wso2.carbon.identity.entitlement.internal.*,
                             org.wso2.carbon.identity.entitlement.*; version="${carbon.identity.package.export.version}",
                         </Export-Package>
                         <DynamicImport-Package>*</DynamicImport-Package>
